@@ -1,5 +1,8 @@
 package com.max_hayday.algorithms;
 
+import java.util.*;
+import java.util.concurrent.ConcurrentSkipListMap;
+
 /**
  * Given array of integers.Create and implement a method that will fing  if array contains duplicates of numbers.
  * Example:
@@ -12,18 +15,17 @@ package com.max_hayday.algorithms;
  */
 public class Task2 {
     public static void main(String[] args) {
-        int[] array = new int[]{4, 5, 6, 6, 8};
-        System.out.println(findDuplicatesInArray(array));
+        int[] array1 = new int[]{4, 5, 6, 7, 8};
+        int[] array2 = new int[]{4, 5, 6, 6, 8};
+        System.out.println(findDuplicatesInArrayUsingTreeSet(array2));
     }
 
-    public static boolean findDuplicatesInArray(int[] array) {
-        int i = 0;
-        while (i != array.length - 1) {
-            if (array[i] == array[i + 1]) {
-                return true;
-            }
-            i++;
+    public static boolean findDuplicatesInArrayUsingTreeSet(int[] array) {
+        TreeSet treeSet = new TreeSet();
+        for (int i :
+                array) {
+            treeSet.add(i);
         }
-        return false;
+        return treeSet.size() == array.length ? false : true;
     }
 }
